@@ -2,7 +2,7 @@
 import configparser
 from getpass import getpass
 
-from awstool.config import user_config_file
+from awstool.config import user_config_file, sso_section
 
 
 def set_configure(args):
@@ -14,7 +14,6 @@ def set_configure(args):
     username = input("Enter your Identity User(like user@example.com):")
     password = getpass("Enter your Identity Password:")
 
-    sso_section = 'SSO'
     if not user_config.has_section(sso_section):
         user_config.add_section(sso_section)
 
