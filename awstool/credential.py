@@ -81,7 +81,7 @@ def generate_credential(account, saml_assertion):
     role_arn = account_config[account]['role_arn']
     principal_arn = account_config[account]['principal_arn']
     # Use the assertion to get an AWS STS token using Assume Role with SAML
-    client = boto3.client('sts')
+    client = boto3.client('sts', region_name=region)
     response = client.assume_role_with_saml(
         RoleArn=role_arn,
         PrincipalArn=principal_arn,
